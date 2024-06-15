@@ -1,9 +1,6 @@
 'use client';
 import { Header } from "@/components/header/Header";
 import { Footer } from "@/components/footer/Footer";
-import { ConnectButton } from "thirdweb/react";
-import { client } from "../client";
-import { inAppWallet } from "thirdweb/wallets";
 
 const InAppWalletsPage: React.FC = () => {
     return (
@@ -34,10 +31,6 @@ function AllOptions () {
     return (
         <div className="flex flex-col items-center mb-20 md:mb-20">
             <p  className="text-zinc-300 text-base mb-4 md:mb-4">All Options</p>
-            <ConnectButton  
-                client={client}
-                wallets={[ inAppWallet() ]}
-            />
         </div>
     )
 }
@@ -47,18 +40,6 @@ function EmailOnly () {
     return (
         <div className="flex flex-col items-center mb-20 md:mb-20">
             <p  className="text-zinc-300 text-base mb-4 md:mb-4">Email Only</p>
-            <ConnectButton  
-                client={client}
-                wallets={[ 
-                    inAppWallet({
-                        auth: {
-                            options: [
-                                "email"
-                            ]
-                        }
-                    }) 
-                ]}
-            />
         </div>
     )
 }
@@ -68,21 +49,6 @@ function SocialOnly () {
     return (
         <div className="flex flex-col items-center mb-20 md:mb-20">
             <p  className="text-zinc-300 text-base mb-4 md:mb-4">Social Only</p>
-            <ConnectButton  
-                client={client}
-                wallets={[ 
-                    inAppWallet({
-                        auth: {
-                            // Select social login options
-                            options: [
-                                "google",
-                                // "facebook",
-                                // "apple"
-                            ]
-                        }
-                    }) 
-                ]}
-            />
         </div>
     )
 }
@@ -92,19 +58,6 @@ function PhonePassKey () {
     return (
         <div className="flex flex-col items-center mb-20 md:mb-20">
             <p  className="text-zinc-300 text-base mb-4 md:mb-4">Phone + Pass Key</p>
-            <ConnectButton  
-                client={client}
-                wallets={[ 
-                    inAppWallet({
-                        auth: {
-                            options: [
-                                "phone",
-                                "passkey"
-                            ]
-                        }
-                    }) 
-                ]}
-            />
         </div>
     )
 }
