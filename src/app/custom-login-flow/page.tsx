@@ -32,9 +32,11 @@ function CustomFlows() {
 }
 
 function SingleWalletFlow () {
+    // Get active account and wallet
     const account = useActiveAccount();
     const connectedWallet = useActiveWallet();
 
+    // Get connect and disconnect functions
     const { connect } = useConnect();
     const { disconnect } = useDisconnect();
 
@@ -61,12 +63,15 @@ function SingleWalletFlow () {
 }
 
 function SocialFlow() {
+    // Get active account and wallet
     const account = useActiveAccount();
     const connectedWallet = useActiveWallet();
 
+    // Get connect and disconnect functions
     const { connect } = useConnect();
     const { disconnect } = useDisconnect();
 
+    // Create In-App Wallet with social login and connect
     const handleLogin = async () => {
         await connect(async () => {
             const wallet = inAppWallet();
@@ -99,16 +104,20 @@ function SocialFlow() {
 }
 
 function EmailFlow() {
+    // Get active account and wallet
     const account = useActiveAccount();
     const connectedWallet = useActiveWallet();
 
+    // Get connect and disconnect functions
     const { connect } = useConnect();
     const { disconnect } = useDisconnect();
 
+    // State for email and verification code
     const [isVerification, setIsVerification] = useState(false);
     const [email, setEmail] = useState("");
     const [verificationCode, setVerificationCode] = useState("");
 
+    // Send verification code to email
     const sendVerification = async (email: string) => {
         await preAuthenticate({
             client: client,
@@ -118,6 +127,7 @@ function EmailFlow() {
         setIsVerification(true);
     };
 
+    // Create In-App Wallet with email login and connect
     const handleLogin = async (
         email: string,
         verificationCode: string
@@ -182,12 +192,15 @@ function EmailFlow() {
 }
 
 function PassKeyFlow() {
+    // Get active account and wallet
     const account = useActiveAccount();
     const connectedWallet = useActiveWallet();
 
+    // Get connect and disconnect functions
     const { connect } = useConnect();
     const { disconnect } = useDisconnect();
 
+    // Create In-App Wallet with passkey login and connect
     const handleLogin = async () => {
         await connect(async () => {
             const wallet = inAppWallet();
