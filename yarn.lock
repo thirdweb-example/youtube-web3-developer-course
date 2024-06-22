@@ -5045,10 +5045,10 @@ thenify-all@^1.0.0:
   dependencies:
     any-promise "^1.0.0"
 
-thirdweb@^5.28.0:
-  version "5.28.0"
-  resolved "https://registry.yarnpkg.com/thirdweb/-/thirdweb-5.28.0.tgz#0584c940330d499c82d69d21a0237e4f4524db3b"
-  integrity sha512-nEc2b+5tWdvmizcUIIzovFuXeXTKIzTO+sRviiPYaoaAddNJjuoyWR58lsmo2gIBD8jjJohVBhN7FTRdz2ERbA==
+thirdweb@^5.29.2:
+  version "5.29.2"
+  resolved "https://registry.yarnpkg.com/thirdweb/-/thirdweb-5.29.2.tgz#2f5b5117bef664bd575973a4c907d68fd4357f44"
+  integrity sha512-romT7L86oMMGB3lssuDOCsFIKl5BPhpNL7CWj2hsvxiZezqpkbqJs1U57vbSOv2AaDRsOXGyB13FOjAKoxXm3g==
   dependencies:
     "@coinbase/wallet-sdk" "4.0.3"
     "@emotion/react" "11.11.4"
@@ -5071,7 +5071,7 @@ thirdweb@^5.28.0:
     mipd "0.0.7"
     node-libs-browser "2.2.1"
     uqr "0.1.2"
-    viem "2.10.9"
+    viem "2.13.7"
 
 thread-stream@^0.15.1:
   version "0.15.2"
@@ -5365,10 +5365,10 @@ valtio@1.11.2:
     proxy-compare "2.5.1"
     use-sync-external-store "1.2.0"
 
-viem@2.10.9:
-  version "2.10.9"
-  resolved "https://registry.yarnpkg.com/viem/-/viem-2.10.9.tgz#2ccd69cb073b547507ea86c42c122daa3128af55"
-  integrity sha512-XsbEXhOcmQOkI80zDLW0EdksimNuYTS61HZ03vQYpHoug7gwVHDQ83nY+nuyT7punuFx0fmRG6+HZg3yVQhptQ==
+viem@2.13.7:
+  version "2.13.7"
+  resolved "https://registry.yarnpkg.com/viem/-/viem-2.13.7.tgz#c1153c02f7ffaf0263d784fc1d4e4ffa3f66c24a"
+  integrity sha512-SZWn9LPrz40PHl4PM2iwkPTTtjWPDFsnLr32UwpqC/Z5f0AwxitjLyZdDKcImvbWZ3vLQ0oPggR1aLlqvTcUug==
   dependencies:
     "@adraffy/ens-normalize" "1.10.0"
     "@noble/curves" "1.2.0"

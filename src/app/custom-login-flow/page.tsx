@@ -1,7 +1,7 @@
 'use client';
 import { Header } from "@/components/header/Header";
 import { Footer } from "@/components/footer/Footer";
-import { useActiveAccount, useActiveWallet, useConnect, useDisconnect } from "thirdweb/react";
+import { useActiveAccount, useActiveWallet, useAutoConnect, useConnect, useConnectModal, useDisconnect } from "thirdweb/react";
 import { client } from "../client";
 import { createWallet, inAppWallet } from "thirdweb/wallets";
 import { hasStoredPasskey, preAuthenticate } from "thirdweb/wallets/in-app";
@@ -27,10 +27,12 @@ function CustomFlows() {
         <SocialFlow />
         <EmailFlow />
         <PassKeyFlow />
+        <ConnecModalButton />
       </div>
     );
 }
 
+// Create a custom login flow with a single wallet
 function SingleWalletFlow () {
     // Get active account and wallet
     const account = useActiveAccount();
@@ -62,6 +64,7 @@ function SingleWalletFlow () {
     )
 }
 
+// Create a custom login flow with social login
 function SocialFlow() {
     // Get active account and wallet
     const account = useActiveAccount();
@@ -103,6 +106,7 @@ function SocialFlow() {
     )
 }
 
+// Create a custom login flow with email login
 function EmailFlow() {
     // Get active account and wallet
     const account = useActiveAccount();
@@ -191,6 +195,7 @@ function EmailFlow() {
     )
 }
 
+// Create a custom login flow with passkey login
 function PassKeyFlow() {
     // Get active account and wallet
     const account = useActiveAccount();
@@ -228,6 +233,54 @@ function PassKeyFlow() {
                         className="bg-blue-500 text-white-400 px-4 py-2 rounded-md"
                         onClick={handleLogin}
                     >Sign-in with Passkey</button>
+                </>
+            )}
+        </div>
+    )
+}
+
+// Create a custom button that opens the Connect Modal
+function ConnecModalButton() {
+    // Get active account and wallet
+    const account = useActiveAccount();
+    const connectedWallet = useActiveWallet();
+
+    // Get disconnect functions
+    const { disconnect } = useDisconnect();
+
+    // Get connect modal function
+    const { connect } = useConnectModal();
+
+    // Handle login with connect modal
+    async function handleLogin() {
+        const wallet = await connect({ client: client });
+    }
+
+    // Auto connect wallet on page load
+    const { data: autoConnected } = useAutoConnect({
+        client: client,
+        wallets: [
+            createWallet("io.metamask"),
+        ],
+        onConnect(wallet) {
+            console.log("Auto connected wallet:", wallet);
+        },
+    });
+
+    return (
+        <div className="flex flex-col items-center mb-20 md:mb-20">
+            <p  className="text-zinc-300 text-base mb-4 md:mb-4">Connect Modal</p>
+            {account && connectedWallet ? (
+                <button
+                    className="bg-red-500 text-white-400 px-4 py-2 rounded-md"
+                    onClick={() => disconnect(connectedWallet)}
+                >Disconnect</button>
+            ) : (
+                <>
+                    <button
+                        className="bg-green-500 text-white-400 px-4 py-2 rounded-md"
+                        onClick={handleLogin}
+                    >Connect Wallet</button>
                 </>
             )}
         </div>

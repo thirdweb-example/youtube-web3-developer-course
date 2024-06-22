@@ -38,6 +38,16 @@ function Menu() {
         href="/custom-login-flow"
         description="Learn how to use Connect SDK to build your own custom login flow."
       />
+      <MenuItem
+        title="Account Abstraction"
+        href="/account-abstraction"
+        description="Learn how to implement account abstraction with ConnectButton."
+      />
+      <MenuItem
+        title="Wallet Connection"
+        href="/wallet-connection"
+        description="Learn how get data and interact with the blockchain with a connected wallet."
+      />
     </div>
   )
 }
